@@ -1,4 +1,4 @@
-local ui =  game:GetService("CoreGui"):FindFirstChild("redui")  
+local ui =  game:GetService("CoreGui"):FindFirstChild("whiteui")  
 if ui then 
 ui:Destroy()
 end
@@ -9,31 +9,31 @@ local RunService = game:GetService("RunService")
 local LocalPlayer = game:GetService("Players").LocalPlayer
 local Mouse = LocalPlayer:GetMouse()
 local tween = game:GetService("TweenService")
-local Red = {RainbowColorValue = 0, HueSelectionPosition = 0}
+local white = {RainbowColorValue = 0, HueSelectionPosition = 0}
 local PresetColor = Color3.fromRGB(66, 134, 255)
 
 
 coroutine.wrap(
 function()
     while wait() do
-        Red.RainbowColorValue = Red.RainbowColorValue + 1 / 255
-        Red.HueSelectionPosition = Red.HueSelectionPosition + 1
+        white.RainbowColorValue = white.RainbowColorValue + 1 / 255
+        white.HueSelectionPosition = white.HueSelectionPosition + 1
 
-        if Red.RainbowColorValue >= 1 then
-            Red.RainbowColorValue = 0
+        if white.RainbowColorValue >= 1 then
+            white.RainbowColorValue = 0
         end
 
-        if Red.HueSelectionPosition == 160 then
-            Red.HueSelectionPosition = 0
+        if white.HueSelectionPosition == 160 then
+            white.HueSelectionPosition = 0
         end
     end
 end
 )()
 
-local Reduisceen = Instance.new("ScreenGui")
-Reduisceen.Parent = game:GetService("CoreGui")
-Reduisceen.Name = "redui"
-Reduisceen.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+local whiteuisceen = Instance.new("ScreenGui")
+whiteuisceen.Parent = game:GetService("CoreGui")
+whiteuisceen.Name = "whiteui"
+whiteuisceen.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 
 
@@ -108,7 +108,7 @@ local fs = false
 
 local MainSceen = Instance.new("Frame")
 MainSceen.Name = "MainSceen"
-MainSceen.Parent = Reduisceen
+MainSceen.Parent = whiteuisceen
 MainSceen.AnchorPoint = Vector2.new(0.5, 0.5)
 MainSceen.BackgroundColor3 = Color3.fromRGB(15,15,15)
 MainSceen.BorderSizePixel = 0
@@ -144,11 +144,11 @@ game:GetService("UserInputService").InputBegan:Connect(function(input)
                 library.toggledui = true
                 tween:Create(MainSceen,TweenInfo.new(0.4,Enum.EasingStyle.Back,Enum.EasingDirection.In),{Size = UDim2.new(0, 0, 0, 0)}):Play()
                 wait(.3)
-                Reduisceen.Enabled = false
+                whiteuisceen.Enabled = false
             else
                 library.toggledui = false
                 tween:Create(MainSceen,TweenInfo.new(0.4,Enum.EasingStyle.Back),{Size = UDim2.new(0, 534, 0, 474)}):Play()
-                Reduisceen.Enabled = true
+                whiteuisceen.Enabled = true
             end
         end
     end)
@@ -251,7 +251,7 @@ local top = {}
 
 local NotiFrame = Instance.new("Frame")
 NotiFrame.Name = "NotiFrame"
-NotiFrame.Parent = Reduisceen
+NotiFrame.Parent = whiteuisceen
 NotiFrame.AnchorPoint = Vector2.new(0.5, 0.5)
 NotiFrame.BackgroundColor3 = Color3.fromRGB(18,18,18)
 NotiFrame.BorderSizePixel = 0
@@ -3327,11 +3327,11 @@ OMF.MouseButton1Down:Connect(
                 OldHueSelectionPosition = HueSelection.Position
 
                 while RainbowColorPicker do
-                    BoxColor.BackgroundColor3 = Color3.fromHSV(Red.RainbowColorValue, 1, 1)
-                    Color.BackgroundColor3 = Color3.fromHSV(Red.RainbowColorValue, 1, 1)
+                    BoxColor.BackgroundColor3 = Color3.fromHSV(white.RainbowColorValue, 1, 1)
+                    Color.BackgroundColor3 = Color3.fromHSV(white.RainbowColorValue, 1, 1)
 
                     ColorSelection.Position = UDim2.new(1, 0, 0, 0)
-                    HueSelection.Position = UDim2.new(0,  Red.HueSelectionPosition, 0.5,0)
+                    HueSelection.Position = UDim2.new(0,  white.HueSelectionPosition, 0.5,0)
 
                     pcall(callback, BoxColor.BackgroundColor3)
                     wait()
@@ -3369,11 +3369,11 @@ OMF.MouseButton1Down:Connect(
                 OldHueSelectionPosition = HueSelection.Position
 
                 while RainbowColorPicker do
-                    BoxColor.BackgroundColor3 = Color3.fromHSV(Red.RainbowColorValue, 1, 1)
-                    Color.BackgroundColor3 = Color3.fromHSV(Red.RainbowColorValue, 1, 1)
+                    BoxColor.BackgroundColor3 = Color3.fromHSV(white.RainbowColorValue, 1, 1)
+                    Color.BackgroundColor3 = Color3.fromHSV(white.RainbowColorValue, 1, 1)
 
                     ColorSelection.Position = UDim2.new(1, 0, 0, 0)
-                    HueSelection.Position = UDim2.new(0,  Red.HueSelectionPosition, 0.5,0)
+                    HueSelection.Position = UDim2.new(0,  white.HueSelectionPosition, 0.5,0)
 
                     pcall(callback, BoxColor.BackgroundColor3)
                     wait()
